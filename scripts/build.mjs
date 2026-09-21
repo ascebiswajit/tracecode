@@ -1,0 +1,10 @@
+import {cp,mkdir,readFile,access} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+const root=new URL('../',import.meta.url);
+await access(new URL('node_modules/acorn/dist/acorn.mjs',root));
+await mkdir(new URL('dist/',root),{recursive:true});
+await cp(new URL('src/',root),new URL('dist/',root),{recursive:true});
+await cp(new URL('node_modules/acorn/dist/acorn.mjs',root),new URL('dist/acorn.mjs',root));
+await cp(new URL('node_modules/acorn/LICENSE',root),new URL('dist/ACORN-LICENSE',root));
+await cp(new URL('LICENSE',root),new URL('dist/LICENSE',root));
+console.log('Built static website in '+fileURLToPath(new URL('dist/',root)));

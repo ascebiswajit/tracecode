@@ -1,0 +1,20 @@
+{
+  "name": "tracecode",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "An open-source code visualization workspace",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && node scripts/serve.mjs",
+    "test": "node --test",
+    "check": "node --check src/app.mjs && node --check src/engine.mjs && node --check src/worker.mjs"
+  },
+  "dependencies": {
+    "acorn": "8.18.0"
+  }
+}
