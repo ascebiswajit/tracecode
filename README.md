@@ -86,6 +86,8 @@ Code is not sent to an execution server. Google Fonts is requested for typograph
 
 ## Contributing
 
+The website includes a **Contribute** page at `contribute.html` with local setup, fork/branch instructions, the pull-request workflow and links to project resources.
+
 Everyone can fork the public repository and propose a pull request. Maintainers review and merge contributions; public visibility does not grant direct push access.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), and [the roadmap](docs/ROADMAP.md). Please discuss new runtimes before implementation.
