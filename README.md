@@ -101,3 +101,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 ## License
 
 [MIT](LICENSE), copyright 2026 ascebiswajit. Acorn is MIT-licensed separately; its license is retained in build output.
+
+## Website pages
+
+The homepage (`src/index.html`) explains the mission and invites contributions. Open the execution workspace at `visualizer.html`; the full contributor walkthrough is at `contribute.html`. All pages use relative links for subdirectory hosting.
