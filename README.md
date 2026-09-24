@@ -105,3 +105,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 ## Website pages
 
 The homepage (`src/index.html`) explains the mission and invites contributions. Open the execution workspace at `visualizer.html`; the full contributor walkthrough is at `contribute.html`. All pages use relative links for subdirectory hosting.
+
+## Learning path
+
+Open `learn.html` for eight steps from first program to an open-source contribution. Each step includes a task, an AI tutor prompt, and three questions with expandable self-check answers. These are general learning activities, not an integrated AI service or an additional language runtime. Edit `src/learn.html` to improve the curriculum.
