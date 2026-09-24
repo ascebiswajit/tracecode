@@ -1,1 +1,10 @@
 .guide{--dim:#a6b2b4}.guide>h1{line-height:1.15}.guide-layout{margin-top:38px}.guide aside{max-height:85vh;overflow:auto}.guide aside a{line-height:1.5}.ai-prompt{border:1px solid #394b35;border-radius:8px;background:#b8f27908;padding:0 20px 16px;margin:24px 0}.ai-prompt h3{color:var(--mint);font-size:16px}.ai-prompt blockquote{margin:0;color:#bdc9c8;line-height:1.7}.questions{padding-left:24px}.questions>li{padding:12px 0;border-bottom:1px solid var(--line)}.questions p{color:#c3cdce}.questions summary{cursor:pointer;font-size:14px;color:var(--mint);padding:10px 0;line-height:1.5}.questions summary:focus-visible{outline:2px solid var(--mint);outline-offset:3px}.questions details p{border-left:2px solid #536d43;padding:10px 16px;margin:8px 0;background:#171d1f}.checkpoint{font-size:15px;padding:16px;background:var(--panel);border-radius:7px}nav a[aria-current]{color:var(--mint)}@media(max-width:760px){header{flex-wrap:wrap;padding:18px 22px}header nav{display:flex;flex-wrap:wrap;gap:20px}.guide aside{max-height:none}.guide h1{font-size:34px}}
+/* Reading navigation: restrained emphasis, with a persistent position marker. */
+.guide aside{padding:16px 10px 16px 12px;border:1px solid #2b3736;border-radius:12px;background:#151c1c;scrollbar-width:thin;scrollbar-color:#43533e transparent}
+.guide aside h2{padding:0 10px;margin:0 0 14px;font-size:15px;color:#d9e3df}
+.guide aside a{position:relative;padding:11px 12px;margin:4px 0;border:1px solid transparent;border-radius:7px;color:#a6b2b4;transition:background-color .18s ease,color .18s ease,border-color .18s ease}
+.guide aside a:hover{background:#b8f27908;color:#e3eadf}
+.guide aside a[aria-current="step"]{background:#b8f27910;border-color:#b8f27924;color:var(--mint)}
+.guide aside a[aria-current="step"]::before{content:"";position:absolute;left:-1px;top:11px;bottom:11px;width:3px;border-radius:3px;background:var(--mint)}
+.guide article section[id]{scroll-margin-top:28px}
+@media(prefers-reduced-motion:reduce){.guide aside a{transition:none}}
