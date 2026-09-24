@@ -26,3 +26,20 @@ test('invalid source produces a parser error',()=>assert.throws(()=>trace('const
 test('rainwater example passes all ten cases',()=>{
  assert.deepEqual(run(examples[3].code).events.at(-1).output,[9,3,0,0,6,0,0,0,15,7].map((v,i)=>'Test '+(i+1)+': '+v));
 });
+
+test('const rejects direct, compound and update assignments without mutation',()=>{
+ for(const operation of ['x=2','x+=2','x++','--x']){
+  const r=trace('const x=1;'+operation+';');
+  assert.match(r.error,/Assignment to constant variable: x/);
+  assert.equal(r.events.at(-1).scopes[0].x,1);
+ }
+});
+test('const checks follow lexical scope and allow mutable shadowing',()=>{
+ assert.match(trace('const x=1;function f(){x=2;}f();').error,/constant variable/);
+ assert.deepEqual(run('const x=1;{let x=2;x++;console.log(x);}console.log(x);').events.at(-1).output,['3','1']);
+});
+test('const permits object and array mutations, but rejects rebinding',()=>{
+ const r=run('const obj={n:1};const arr=[1];obj.n=2;arr.push(2);arr[0]=3;console.log(obj.n,arr[0],arr.length);');
+ assert.deepEqual(r.events.at(-1).output,['2 3 2']);
+ assert.match(trace('const arr=[];arr=[];').error,/constant variable/);
+});

@@ -52,6 +52,8 @@ Previous steps replay stored snapshots; they do not re-run code. Editing code re
 
 Rainwater expected results: **9, 3, 0, 0, 6, 0, 0, 0, 15, 7**.
 
+Const bindings reject reassignment (including `+=` and `++`). Objects and arrays declared with const can still be mutated.
+
 ## Support matrix
 
 | Capability | Status |
@@ -64,7 +66,7 @@ Rainwater expected results: **9, 3, 0, 0, 6, 0, 0, 0, 15, 7**.
 | React state, rendering and lifecycle tracing | Not implemented |
 | Native memory addresses, allocation and garbage collection | Not measured; conceptual references only |
 
-The interpreter does not implement full ECMAScript semantics: const enforcement, complete hoisting, destructuring, classes, modules, general exception handling and built-in objects are unsupported or incomplete. Unsupported syntax produces an error where detected. Display snapshots are limited to 100 keys per object.
+The interpreter does not implement full ECMAScript semantics: complete hoisting, destructuring, classes, modules, general exception handling and built-in objects are unsupported or incomplete. Unsupported syntax produces an error where detected. Display snapshots are limited to 100 keys per object.
 
 ## Structure
 

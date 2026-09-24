@@ -2,7 +2,7 @@
 
 These are planned areas, not working features or delivery promises.
 
-1. Improve JavaScript semantics, including declaration kinds, hoisting and precise errors.
+1. Improve JavaScript semantics, including var scoping, hoisting and precise errors.
 2. Bound allocation and broaden interpreter regression coverage.
 3. Version the trace schema and split runtime adapters into separate modules.
 4. Add TypeScript/Python adapters with real execution and source mapping.
