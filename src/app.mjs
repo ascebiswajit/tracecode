@@ -1,3 +1,4 @@
+import {openPractice} from './practice-ui.mjs';
 import {languages,plugins} from './engine.mjs';
 import {examples} from './examples.mjs';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -79,7 +80,10 @@ $$('[data-tab]').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;$$('[data-tab]').fo
 $$('[data-console]').forEach(b=>b.onclick=()=>{consoleTab=b.dataset.console;render();});
 $('#close').onclick=()=>$('#modal').close();
 $('#modal').onclick=e=>{if(e.target===$('#modal'))$('#modal').close();};
-function openExamples(){modal('Explore an example',examples.map((e,i)=>'<button class="example" data-example="'+i+'"><strong>'+escape(e.name)+'</strong><small>'+escape(e.desc)+'</small></button>').join(''));$$('[data-example]').forEach(b=>b.onclick=()=>{$('#language').value='JavaScript';$('#filename').textContent='main.js';$('#code').value=examples[+b.dataset.example].code;$('#modal').close();run();});}
+function openExamples(){openPractice({language:$('#language').value,modal,load:({language,code,run:execute})=>{
+ stop();cancelRun();$('#language').value=language;$('#language').dispatchEvent(new Event('change'));$('#code').value=code;
+ if(execute){run();}else{dirty=true;result={events:[],error:null};index=0;$('#status').textContent='Starter loaded · write your solution';render();$('#code').focus();}
+}});}
 $('#examples').onclick=openExamples;$('#loadexample').onclick=openExamples;$('#workspace').onclick=()=>$('#code').focus();
 $('#trace').onclick=()=>{modal('Trace data','<p>Snapshots from the last execution'+(dirty?' (the editor has since changed)':'')+'.</p><button class="example" id="download">↓ Download trace.json</button><pre>'+escape(JSON.stringify(result,null,2))+'</pre>');$('#download').onclick=()=>{const u=URL.createObjectURL(new Blob([JSON.stringify(result,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=u;a.download='trace.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);};};
 $('#support').onclick=()=>modal('Language & runtime support','<p>This release has a restricted JavaScript interpreter. Other languages are planned adapters, not executable runtimes.</p><table>'+languages.map(l=>'<tr><td>'+l+'</td><td>'+(plugins.has(l)?'Core subset available':'Adapter required')+'</td></tr>').join('')+'</table><p>Async/event-loop, API and framework lifecycle tracing are not implemented. Memory is conceptual, not native addresses. The interpreter is a teaching prototype, not a hardened sandbox.</p>');

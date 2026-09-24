@@ -43,6 +43,10 @@ npm test
 
 Previous steps replay stored snapshots; they do not re-run code. Editing code requires a fresh run.
 
+## Practice curriculum
+
+Open **Practice** or **Explore exercises** to browse 60 shared exercises: 20 each at Level 1 (Foundations), Level 2 (Intermediate), and Level 3 (Advanced). Every language offers the same questions with language-specific starter syntax, sample inputs, expected results and hints. Search by title or topic. Starters are unfinished practice prompts, not worked solutions. JavaScript is still the only executable runtime, and advanced exercises can require unsupported syntax. Completed JavaScript demos remain under **Worked examples**.
+
 ## Included examples
 
 - Array sum: loops, function arguments and array references.
