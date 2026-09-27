@@ -79,7 +79,12 @@ $('#speed').onchange=()=>{if(timer){stop();play();}};
 $$('[data-tab]').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;$$('[data-tab]').forEach(x=>{x.classList.toggle('selected',x===b);x.setAttribute('aria-pressed',String(x===b));});render();});
 $$('[data-console]').forEach(b=>b.onclick=()=>{consoleTab=b.dataset.console;render();});
 $('#close').onclick=()=>$('#modal').close();
-$('#modal').onclick=e=>{if(e.target===$('#modal'))$('#modal').close();};
+$('#modal').onclick=e=>{
+ const dialog=$('#modal');
+ if(e.target!==dialog)return;
+ const bounds=dialog.getBoundingClientRect();
+ if(e.clientX<bounds.left||e.clientX>bounds.right||e.clientY<bounds.top||e.clientY>bounds.bottom)dialog.close();
+};
 function openExamples(){openPractice({language:$('#language').value,modal,load:({language,code,run:execute})=>{
  stop();cancelRun();$('#language').value=language;$('#language').dispatchEvent(new Event('change'));$('#code').value=code;
  if(execute){run();}else{dirty=true;result={events:[],error:null};index=0;$('#status').textContent='Starter loaded · write your solution';render();$('#code').focus();}

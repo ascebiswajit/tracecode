@@ -109,3 +109,18 @@ The homepage (`src/index.html`) explains the mission and invites contributions. 
 ## Learning path
 
 Open `learn.html` for eight steps from first program to an open-source contribution. Each step includes a task, an AI tutor prompt, and three questions with expandable self-check answers. These are general learning activities, not an integrated AI service or an additional language runtime. Edit `src/learn.html` to improve the curriculum.
+
+## Browser UI tests
+
+```sh
+npm ci
+npx playwright install --with-deps chromium
+npm run test:ui
+```
+
+Playwright starts the local server and checks the homepage, learning navigation,
+practice search and starter loading, dialog dismissal, code execution, playback,
+and unavailable-language messaging in desktop Chromium and a mobile viewport.
+The mobile project emulates a Pixel 7 in Chromium; it is not a physical-device test.
+`npm test` runs the interpreter/curriculum tests separately. CI runs both suites
+and uploads browser reports and traces when UI tests fail.
