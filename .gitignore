@@ -8,3 +8,5 @@ coverage/
 .openai/
 .sites-runtime/
 *.log
+playwright-report/
+test-results/
